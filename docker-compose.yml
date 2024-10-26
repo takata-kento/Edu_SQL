@@ -1,0 +1,27 @@
+version: "1.0"
+services:
+  db:
+    image: postgres:17
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_PASSWORD: P@ssw0rd!
+      POSTGRES_USER: test
+      POSTGRES_DB: test_db
+    stdin_open: true
+    tty: true
+
+  db_mysql:
+    image: mysql:9.1
+    volumes:
+      - ./init/mysql:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_PASSWORD: P@ssw0rd!
+      MYSQL_USER: test
+      MYSQL_DATABASE: test_db
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    stdin_open: true
+    tty: true
+
