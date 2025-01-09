@@ -24,3 +24,9 @@ CHECK(NOT EXISTS(
 	)
 );
 
+/*
+DROP TABLE table1;
+DROP TABLE table2;
+DROP ASSERTION population_check;
+*/
+
